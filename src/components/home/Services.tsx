@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useMotionTemplate } from 'framer-motion';
 
 const services = [
@@ -12,15 +12,34 @@ const services = [
 
 const ServiceItem = ({ text }: { text: string }) => {
   const targetRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check mobile state on mount and resize
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end start"]
   });
 
   // Map scroll progress to animations
-  const width = useTransform(scrollYProgress, [0.2, 0.6], ["0%", "105%"]); // Extend beyond 100% to fix clipping
+  const width = useTransform(scrollYProgress, [0.2, 0.6], ["0%", "101%"]); // Reduced to 101% to prevent X-scroll
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0.3, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]); // Subtle scale up from bottom
+
+  // Desktop: Subtle scale on entry
+  const scaleDesktop = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
+
+  // Mobile: Scale up AFTER coming above 30% screen height
+  // 0 -> 0.3 : scales to 1
+  // 0.3 -> 0.8 : scales up to 1.15
+  const scaleMobile = useTransform(scrollYProgress, [0, 0.3, 0.8], [0.95, 1, 1.15]);
+
+  const scale = isMobile ? scaleMobile : scaleDesktop;
 
   return (
     <motion.div
@@ -38,7 +57,7 @@ const ServiceItem = ({ text }: { text: string }) => {
         className="absolute top-10 md:top-24 left-0 overflow-hidden whitespace-nowrap text-[#fff] px-4"
         style={{ width, opacity }}
       >
-        <h3 className="text-3xl sm:text-5xl md:text-8xl font-bold tracking-tighter">
+        <h3 className="text-3xl sm:text-5xl lg:text-8xl font-bold tracking-tighter">
           {text}
         </h3>
       </motion.div>
@@ -69,7 +88,7 @@ const Services = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[200vh] bg-background group"
+      className="relative md:min-h-[200vh] bg-background group overflow-x-clip"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

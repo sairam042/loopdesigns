@@ -92,7 +92,7 @@ const ContactForm = () => {
                                 setFocusedField={setFocusedField}
                             />
                             <InputField
-                                label="Budget (USD)"
+                                label="Budget (INR)"
                                 id="budget"
                                 focusedField={focusedField}
                                 setFocusedField={setFocusedField}

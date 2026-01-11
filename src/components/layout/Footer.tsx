@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-20 flex justify-between items-end text-xs text-gray-600 uppercase tracking-widest">
+      <div className="mt-20 flex justify-between items-end text-[8px] sm:text-[12px] md:text-[16px] text-gray-600 uppercase tracking-widest">
         <span>© 2024 Loop Designs. All Rights Reserved.</span>
         <span>Hyderabad, India</span>
       </div>
