@@ -26,19 +26,19 @@ const ServiceItem = ({ text }: { text: string }) => {
     <motion.div
       ref={targetRef}
       style={{ scale }}
-      className="relative py-16 md:py-24 group cursor-default w-fit mx-auto"
+      className="relative py-10 md:py-24 group cursor-default w-fit mx-auto"
     >
       {/* Background/Stroke Text (Inactive) */}
-      <h3 className="text-5xl md:text-8xl font-bold tracking-tighter text-[#333] stroke-text px-4">
+      <h3 className="text-3xl sm:text-5xl md:text-8xl font-bold tracking-tighter text-[#333] stroke-text px-4">
         {text}
       </h3>
 
       {/* Foreground/Fill Text (Active/Filling) */}
       <motion.div
-        className="absolute top-16 md:top-24 left-0 overflow-hidden whitespace-nowrap text-[#fff] px-4"
+        className="absolute top-10 md:top-24 left-0 overflow-hidden whitespace-nowrap text-[#fff] px-4"
         style={{ width, opacity }}
       >
-        <h3 className="text-5xl md:text-8xl font-bold tracking-tighter">
+        <h3 className="text-3xl sm:text-5xl md:text-8xl font-bold tracking-tighter">
           {text}
         </h3>
       </motion.div>
@@ -83,16 +83,16 @@ const Services = () => {
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#1a2e05_1px,transparent_1px),linear-gradient(to_bottom,#1a2e05_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20 pointer-events-none h-full w-full"></div>
 
       {/* Sticky Header Box */}
-      <div className="sticky top-20 z-30 flex items-center justify-center pt-10 pb-10 bg-background/80 backdrop-blur-sm transition-all duration-300">
-        <div className="px-12 py-4 rounded-xl">
-          <h2 className="text-4xl md:text-[46px] font-bold text-[#ccff00]">
+      <div className="sticky top-20 z-30 flex items-center justify-center pt-6 pb-6 md:pt-10 md:pb-10 bg-background/80 backdrop-blur-sm transition-all duration-300">
+        <div className="md:px-12 py-4 rounded-xl">
+          <h2 className="text-[36px] md:text-[46px] font-bold text-[#ccff00]">
             Services We Offer
           </h2>
         </div>
       </div>
 
       {/* Scrollable list of services */}
-      <div className="flex flex-col items-center justify-center pb-40 pt-20 relative z-20">
+      <div className="flex flex-col items-center justify-center md:pb-40 pt-20 relative z-20">
         <div className="flex flex-col gap-10 items-center justify-center w-full max-w-6xl px-4">
           {services.map((service, index) => (
             <ServiceItem key={index} text={service} />

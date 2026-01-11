@@ -20,15 +20,34 @@ const ClientMarquee = ({ variant = 'light' }: { variant?: 'light' | 'dark' }) =>
           <p className="text-sm uppercase tracking-widest text-gray-500">Selected Clients</p>
         </div>
       )}
-      <div className="flex w-full">
+      <div
+        className="flex w-full overflow-hidden select-none"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+        }}
+      >
         <motion.div
-          className="flex gap-20 items-center min-w-max"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+          className="flex gap-8 md:gap-20 pr-8 md:pr-20 items-center min-w-max flex-shrink-0 will-change-transform"
         >
           {marqueeClients.map((client, index) => (
-            <div key={index} className={`w-16 h-16 relative flex items-center justify-center ${isDark ? 'brightness-0' : 'grayscale hover:grayscale-0 opacity-50 hover:opacity-100'} transition-all`}>
-              <img src={client} alt={`Client ${index}`} className="max-w-full max-h-full object-contain" />
+            <div key={index} className={`h-12 md:h-16 w-auto relative flex items-center justify-center ${isDark ? 'brightness-0' : 'grayscale hover:grayscale-0 opacity-50 hover:opacity-100'} transition-all`}>
+              <img src={client} alt={`Client ${index}`} className="h-full w-auto object-contain" />
+            </div>
+          ))}
+        </motion.div>
+        <motion.div
+          initial={{ x: 0 }}
+          animate={{ x: "-100%" }}
+          transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+          className="flex gap-8 md:gap-20 pr-8 md:pr-20 items-center min-w-max flex-shrink-0 will-change-transform"
+        >
+          {marqueeClients.map((client, index) => (
+            <div key={`dup-${index}`} className={`h-12 md:h-16 w-auto relative flex items-center justify-center ${isDark ? 'brightness-0' : 'grayscale hover:grayscale-0 opacity-50 hover:opacity-100'} transition-all`}>
+              <img src={client} alt={`Client ${index}`} className="h-full w-auto object-contain" />
             </div>
           ))}
         </motion.div>

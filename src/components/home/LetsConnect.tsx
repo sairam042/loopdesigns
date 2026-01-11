@@ -28,7 +28,7 @@ const LetsConnect = () => {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen bg-background flex flex-col items-center justify-center py-20 px-4 group overflow-hidden"
+            className="relative min-h-screen bg-background flex flex-col items-center justify-center py-10 md:py-20 px-4 group overflow-hidden"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
@@ -43,25 +43,25 @@ const LetsConnect = () => {
 
             <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col">
                 {/* Header */}
-                <div className="flex justify-between items-start mb-10">
-                    <h2 className="text-6xl font-bold tracking-tighter text-white flex items-start gap-4">
-                        Lets Connect <ArrowUpRight className="w-12 h-12 md:w-16 md:h-16 text-[#ccff00]" />
+                <div className="flex justify-between items-start mb-8 md:mb-10">
+                    <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white flex items-start gap-2 md:gap-4">
+                        Lets Connect <ArrowUpRight className="w-8 h-8 md:w-16 md:h-16 text-[#ccff00]" />
                     </h2>
                     <div className="hidden md:block">
                         {/* Owl Logo Placeholder - Replacing with a simple icon representation if actual svg not available */}
-                        <img src={logo} alt="logo" className='w-20' />
+                        <img src={logo} alt="logo" className='w-16 md:w-20' />
                     </div>
                 </div>
 
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-20">
 
                     {/* Card 1 */}
-                    <div className="bg-[#1a2e05]/40 backdrop-blur-sm border border-[#ccff00]/20 rounded-3xl p-10 flex flex-col items-center text-center justify-center min-h-[400px] relative group/card transition-all hover:bg-[#1a2e05]/60 hover:border-[#ccff00]/40 z-30">
-                        <div className="mb-6 text-white">
-                            <Hand className="w-20 h-20 text-white" />
+                    <div className="bg-[#1a2e05]/40 backdrop-blur-sm border border-[#ccff00]/20 rounded-3xl p-6 md:p-10 flex flex-col items-center text-center justify-center min-h-[300px] md:min-h-[400px] relative group/card transition-all hover:bg-[#1a2e05]/60 hover:border-[#ccff00]/40 z-30">
+                        <div className="mb-4 md:mb-6 text-white">
+                            <Hand className="w-12 h-12 md:w-20 md:h-20 text-white" />
                         </div>
-                        <p className="text-xl md:text-2xl text-gray-200 font-light leading-relaxed">
+                        <p className="text-lg md:text-2xl text-gray-200 font-light leading-relaxed">
                             We appreciate your consideration and look forward to crafting your vision with us
                         </p>
 
@@ -76,26 +76,26 @@ const LetsConnect = () => {
                     </div>
 
                     {/* Card 2 */}
-                    <div className="bg-[#1a2e05]/40 backdrop-blur-sm border border-[#ccff00]/20 rounded-3xl p-10 flex flex-col items-center text-center justify-center min-h-[400px] hover:bg-[#1a2e05]/60 hover:border-[#ccff00]/40 transition-all">
-                        <div className="mb-6 relative">
-                            <h3 className="text-6xl font-black text-white tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" style={{ WebkitTextStroke: '2px #1a1a1a' }}>
+                    <div className="bg-[#1a2e05]/40 backdrop-blur-sm border border-[#ccff00]/20 rounded-3xl p-6 md:p-10 flex flex-col items-center text-center justify-center min-h-[300px] md:min-h-[400px] hover:bg-[#1a2e05]/60 hover:border-[#ccff00]/40 transition-all">
+                        <div className="mb-4 md:mb-6 relative">
+                            <h3 className="text-4xl md:text-6xl font-black text-white tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" style={{ WebkitTextStroke: '1px #1a1a1a' }}>
                                 THANK<br />YOU
                             </h3>
                         </div>
-                        <div className="mb-4">
-                            <span className="text-6xl text-white">*</span>
+                        <div className="mb-2 md:mb-4">
+                            <span className="text-4xl md:text-6xl text-white">*</span>
                         </div>
-                        <p className="text-xl md:text-2xl text-gray-200">
+                        <p className="text-lg md:text-2xl text-gray-200">
                             Let's bring your ideas to life!
                         </p>
                     </div>
 
                     {/* Card 3 */}
-                    <div className="bg-[#1a2e05]/40 backdrop-blur-sm border border-[#ccff00]/20 rounded-3xl p-10 flex flex-col items-center text-center justify-center min-h-[400px] hover:bg-[#1a2e05]/60 hover:border-[#ccff00]/40 transition-all">
-                        <div className="mb-6 bg-green-500 rounded-full p-4">
-                            <MessageCircle className="w-12 h-12 text-white fill-white" />
+                    <div className="bg-[#1a2e05]/40 backdrop-blur-sm border border-[#ccff00]/20 rounded-3xl p-6 md:p-10 flex flex-col items-center text-center justify-center min-h-[300px] md:min-h-[400px] hover:bg-[#1a2e05]/60 hover:border-[#ccff00]/40 transition-all">
+                        <div className="mb-4 md:mb-6 bg-green-500 rounded-full p-3 md:p-4">
+                            <MessageCircle className="w-8 h-8 md:w-12 md:h-12 text-white fill-white" />
                         </div>
-                        <p className="text-xl md:text-2xl text-gray-200 underline decoration-[#ccff00] underline-offset-4 cursor-pointer hover:text-white transition-colors">
+                        <p className="text-lg md:text-2xl text-gray-200 underline decoration-[#ccff00] underline-offset-4 cursor-pointer hover:text-white transition-colors">
                             Connect us on whats app to start a conversation
                         </p>
                     </div>
@@ -103,8 +103,10 @@ const LetsConnect = () => {
 
                 {/* CTA Button */}
                 <div className="flex justify-center relative">
-                    <button className="bg-[#ccff00] text-black text-xl md:text-2xl px-12 py-6 rounded-full font-bold hover:scale-105 transition-transform duration-300 flex items-center gap-4 shadow-[0_0_40px_rgba(204,255,0,0.3)]">
-                        Download Our Proposal For Free <Download className="w-8 h-8" />
+                    <button className="bg-[#ccff00] text-black text-lg md:text-2xl px-8 py-4 md:px-12 md:py-6 rounded-full font-bold hover:scale-105 transition-transform duration-300 flex items-center gap-2 md:gap-4 shadow-[0_0_40px_rgba(204,255,0,0.3)]">
+                        <span className="hidden md:inline">Download Our Proposal For Free</span>
+                        <span className="inline md:hidden">Download Proposal</span>
+                        <Download className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                 </div>
 

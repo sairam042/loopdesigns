@@ -1,23 +1,21 @@
 import Navbar from './components/layout/Navbar';
 import Hero from './components/home/Hero';
-// import ClientMarquee from './components/home/ClientMarquee';
-import ProcessFlow from './components/home/ProcessFlow';
-import Logofolio from './components/home/Logofolio';
 import Services from './components/home/Services';
 import LetsConnect from './components/home/LetsConnect';
+// 3D Experience Component
+import Cinematic3D from './components/home/Cinematic3D';
 import CreativeProcess from './components/home/CreativeProcess';
 import ContactForm from './components/home/ContactForm';
 import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <div className="font-sans antialiased text-white bg-background selection:bg-white selection:text-black">
+    <div className="bg-background min-h-screen text-primary font-sans selection:bg-accent selection:text-black">
       <Navbar />
       <main>
         <Hero />
-        <ProcessFlow />
-        <Logofolio />
         <Services />
+        <Cinematic3D />
         <LetsConnect />
         <CreativeProcess />
         <ContactForm />
